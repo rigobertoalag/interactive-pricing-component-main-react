@@ -8,21 +8,20 @@ const Prices = () => {
 
   const [price, setPrice] = useState(priceState);
   const [ds, setDS] = useState(discountState);
-  const [discount, setDiscount] = useState();
+  const [discount, setDiscount] = useState(12);
 
   useEffect(() => {
     setPrice(priceState);
-    setDS(discountState)
+    setDS(discountState);
 
-    if(ds){
-      const dis = price * 0.25
-      const res = price - dis
-      setDiscount(res)
-    }else{
+    if (ds) {
+      const dis = priceState * 0.25;
+      const res = price - dis;
+      setDiscount(res);
+    } else {
       setPrice(priceState);
     }
-  }, [priceState,discountState]);
-
+  }, [priceState, discountState]);
 
   return (
     <PricesContainer>
@@ -51,12 +50,20 @@ const PriceContainer = styled.div`
 const MutedText = styled.span`
   color: hsl(225, 20%, 60%);
   font-weight: 600;
+
+  @media (max-width: 425px) {
+    font-size: small;
+  }
 `;
 const PriceText = styled.span`
   color: hsl(227, 35%, 25%);
   font-size: xx-large;
   font-weight: 800;
   margin-right: 0.1em;
+
+  @media (max-width: 425px) {
+    font-size: x-large;
+  }
 `;
 
 export default Prices;

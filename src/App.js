@@ -39,6 +39,12 @@ background-image: url(${pc});
 background-repeat: no-repeat;
 background-position: center;
 background-size: auto;
+
+@media (max-width: 425px) {
+  height: 20%;
+  width: 90%;
+  text-align:center;
+  }
 `
 
 export default App;
